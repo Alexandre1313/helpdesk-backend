@@ -1,21 +1,48 @@
 package com.alexandre.helpdesk.domain;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import com.alexandre.helpdesk.domain.enums.Profile;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-public abstract class Person {
+import com.alexandre.helpdesk.domain.enums.Profile;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+@Entity
+public abstract class Person implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Integer id;   //Identificador
+	
 	protected String name; // Nome
+	
+	@Column(unique = true)
 	protected String itin; // Cpf
+	
+	@Column(unique = true)
 	protected String email; // Email
+	
 	protected String password; // Senha
+	
+	@ElementCollection(fetch = FetchType.EAGER)
+	@CollectionTable(name = "Profiles")
 	protected Set<Integer> profiles = new HashSet<>(); // Set de perfis
+	
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	protected LocalDate creationDate = LocalDate.now(); // Data
 	
 	public Person() {

@@ -1,21 +1,49 @@
 package com.alexandre.helpdesk.domain;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 import com.alexandre.helpdesk.domain.enums.Priority;
 import com.alexandre.helpdesk.domain.enums.Status;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class Called {
+@Entity
+public class Called implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id; // Identificador
+	
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate openingDate = LocalDate.now(); // Data de abertura
+	
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate closingDate = LocalDate.now(); // Data de fechamento
+	
 	private Priority priority; // Prioridade
+	
 	private Status status; // Status
+		
 	private String title; // Título
+	
 	private String comments; // Observações
+	
+	@ManyToOne
+	@JoinColumn(name = "technician_id")
 	private Technician technician; // Técnico
+	
+	@ManyToOne
+	@JoinColumn(name = "client_id")
 	private Client client; // Cliente
 	
 	public Called() {
