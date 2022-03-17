@@ -7,12 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 import com.alexandre.helpdesk.domain.enums.Profile;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Technician extends Person {
 	
 	private static final long serialVersionUID = 1L;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "technician")
 	private List<Called> calls = new ArrayList<>();
 
