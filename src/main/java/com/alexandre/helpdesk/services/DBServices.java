@@ -55,10 +55,6 @@ public class DBServices {
 		Client clientThree = new Client(null, "Carlos Pereira Gomes", "69214454299",
 				"cpg@gmail.com", "334596");
 		
-		Called calledThree = new Called(null, Priority.ALTA, Status.ENCERRADO,
-				"Chamado 03", "Terceiro chamado", technicianThree, clientThree);
-		
-		
 		Technician	technicianFour = new Technician(null, "Ancelmo Nunes Barreto",
 				"79652831310", "anc.nunes@gmail.com", "999865");
 		technicianFour.addProfiles(Profile.TECNICO);
@@ -107,7 +103,7 @@ public class DBServices {
 				technicianFour, technicianFive, technicianSix, technicianSeven));
 		clientRepository.saveAll(Arrays.asList(clientOne, clientTwo, clientThree, 
 				clientFour, clientFive, clientSix, clientSeven));
-		calledRepository.saveAll(Arrays.asList(calledOne, calledTwo, calledThree, 
+		calledRepository.saveAll(Arrays.asList(calledOne, calledTwo, 
 				calledFour, calledFive, calledSix, calledSeven));
 	}
 }

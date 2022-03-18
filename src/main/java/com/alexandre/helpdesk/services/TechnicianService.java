@@ -47,6 +47,15 @@ public class TechnicianService {
 		oldObj = new Technician(objDTO);
 		return repository.save(oldObj);
 	}
+	
+	public void delete(Integer id) {
+		Technician obj = fyndById(id);
+		if(obj.getCalls().size() > 0) {
+			throw new DataIntegrityViolationException("Técnico possui ordens de serviço"
+					+ " e não pode ser deletado");
+		}
+		repository.deleteById(id);		
+	}
 
 	private void validByItinAndEmail(TechnicianDTO objDTO) {
 		Optional<Person> obj = personRepository.findByItin(objDTO.getItin());
@@ -58,5 +67,5 @@ public class TechnicianService {
 			throw new DataIntegrityViolationException("E-mail já cadastrado no sistema");
 		}
 	}
-	
+
 }
