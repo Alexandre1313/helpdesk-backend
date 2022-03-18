@@ -1,5 +1,6 @@
 package com.alexandre.helpdesk.services;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,7 +32,8 @@ public class CalledService {
 	
 	public Called fyndById(Integer id) {
 		Optional<Called> obj = repository.findById(id);
-		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto de id '" + id + "' não encontrado"));
+		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto de id '"
+					+ id + "' não encontrado"));
 	}
 
 	public List<Called> findAll() {
@@ -42,6 +44,13 @@ public class CalledService {
 		return repository.save(newCalled(objDTO));
 	}
 	
+	public Called update(Integer id, @Valid CalledDTO objDTO) {
+		objDTO.setId(id);
+		Called oldObj = fyndById(id);
+		oldObj = newCalled(objDTO);
+		return repository.save(oldObj);
+	}
+	
 	private Called newCalled(CalledDTO obj) {
 		Technician technician = technicianService.fyndById(obj.getTechnician());
 		Client client = clientService.fyndById(obj.getClient());
@@ -49,6 +58,9 @@ public class CalledService {
 		Called called = new Called();
 		if(obj.getId() != null) {
 			called.setId(obj.getId());
+		}
+		if(obj.getStatus().equals(2)) {
+			called.setClosingDate(LocalDate.now());
 		}
 		called.setTechnician(technician);
 		called.setClient(client);

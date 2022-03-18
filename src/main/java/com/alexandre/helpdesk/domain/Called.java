@@ -28,7 +28,7 @@ public class Called implements Serializable {
 	private LocalDate openingDate = LocalDate.now(); // Data de abertura
 	
 	@JsonFormat(pattern = "dd/MM/yyyy")
-	private LocalDate closingDate = LocalDate.now(); // Data de fechamento
+	private LocalDate closingDate; // Data de fechamento
 	
 	private Priority priority; // Prioridade
 	

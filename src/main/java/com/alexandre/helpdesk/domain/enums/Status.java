@@ -2,7 +2,7 @@ package com.alexandre.helpdesk.domain.enums;
 
 public enum Status {
 	
-	ABERTO(0, "ABERTO"), ANDAMENTO(1, "ANDAMENTO"), ENCERRADO(1, "ENCERRADO");
+	ABERTO(0, "ABERTO"), ANDAMENTO(1, "ANDAMENTO"), ENCERRADO(2, "ENCERRADO");
 	
 	private Integer code;
 	private String description;
