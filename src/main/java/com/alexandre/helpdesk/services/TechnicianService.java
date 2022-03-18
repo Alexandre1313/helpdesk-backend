@@ -3,6 +3,8 @@ package com.alexandre.helpdesk.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +39,14 @@ public class TechnicianService {
 		Technician newObj = new Technician(objDTO);
 		return repository.save(newObj);
 	}
+	
+	public Technician update(Integer id, @Valid TechnicianDTO objDTO) {
+		objDTO.setId(id);
+		Technician oldObj = fyndById(id);
+		validByItinAndEmail(objDTO);
+		oldObj = new Technician(objDTO);
+		return repository.save(oldObj);
+	}
 
 	private void validByItinAndEmail(TechnicianDTO objDTO) {
 		Optional<Person> obj = personRepository.findByItin(objDTO.getItin());
@@ -48,4 +58,5 @@ public class TechnicianService {
 			throw new DataIntegrityViolationException("E-mail já cadastrado no sistema");
 		}
 	}
+	
 }
