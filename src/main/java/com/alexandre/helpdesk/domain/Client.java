@@ -2,10 +2,12 @@ package com.alexandre.helpdesk.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import com.alexandre.helpdesk.domain.dtos.ClientDTO;
 import com.alexandre.helpdesk.domain.enums.Profile;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -26,6 +28,17 @@ public class Client extends Person {
 	public Client(Integer id, String name, String itin, String email, String password) {
 		super(id, name, itin, email, password);
 		addProfiles(Profile.CLIENTE);
+	}
+	
+	public Client(ClientDTO objDTO) {
+		super();
+		this.id = objDTO.getId();
+		this.name = objDTO.getName();
+		this.itin = objDTO.getItin();
+		this.email = objDTO.getEmail();
+		this.password = objDTO.getPassword();
+		this.profiles = objDTO.getProfiles().stream().map(p -> p.getCode()).collect(Collectors.toSet());
+		this.creationDate = objDTO.getCreationDate();
 	}
 
 	public List<Called> getCalls() {
