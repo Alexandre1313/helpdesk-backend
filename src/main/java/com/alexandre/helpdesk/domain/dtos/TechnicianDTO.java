@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import javax.validation.constraints.NotNull;
+
 import com.alexandre.helpdesk.domain.Technician;
 import com.alexandre.helpdesk.domain.enums.Profile;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -15,10 +17,19 @@ public class TechnicianDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	protected Integer id;   //Identificador
+	
+	@NotNull(message = "O campo NOME é requerido")
 	protected String name; // Nome
+	
+	@NotNull(message = "O campo CPF é requerido")
 	protected String itin; // Cpf
+	
+	@NotNull(message = "O campo E-MAIL é requerido")
 	protected String email; // Email
+	
+	@NotNull(message = "O campo SENHA é requerido")
 	protected String password; // Senha
+	
 	protected Set<Integer> profiles = new HashSet<>(); // Set de perfis
 	
 	@JsonFormat(pattern = "dd/MM/yyyy")
