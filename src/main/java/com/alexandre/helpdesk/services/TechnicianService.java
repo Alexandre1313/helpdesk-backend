@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.alexandre.helpdesk.domain.Person;
@@ -19,6 +20,8 @@ import com.alexandre.helpdesk.services.exceptions.ObjectNotFoundException;
 @Service
 public class TechnicianService {
 
+	@Autowired
+	private BCryptPasswordEncoder enc;
 	@Autowired
 	private TechnicianRepository repository;
 	@Autowired
@@ -35,6 +38,7 @@ public class TechnicianService {
 
 	public Technician create(TechnicianDTO objDTO) {
 		objDTO.setId(null);
+		objDTO.setPassword(enc.encode(objDTO.getPassword()));
 		validByItinAndEmail(objDTO); 
 		Technician newObj = new Technician(objDTO);
 		return repository.save(newObj);

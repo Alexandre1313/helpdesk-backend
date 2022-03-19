@@ -150,5 +150,4 @@ public class Called implements Serializable {
 		Called other = (Called) obj;
 		return Objects.equals(id, other.id);
 	}
-
 }
