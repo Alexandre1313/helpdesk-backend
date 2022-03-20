@@ -34,7 +34,7 @@ public class DBServices {
 	
 	public void instantiateDb() {
 		Technician	technicianOne = new Technician(null, "Alexandre Cordeiro",
-				"00061268984", "alexandre.13a@gmail.com", enc.encode("13041979"));
+				"63133496794", "alexandre.13a@gmail.com", enc.encode("2240890"));
 		technicianOne.addProfiles(Profile.ADMIN);
 		
 		Client clientOne = new Client(null, "Linus Torvald", "03113040957",
@@ -106,11 +106,49 @@ public class DBServices {
 				"Chamado 07", "Sétimo chamado", technicianSeven, clientSeven);
 		
 		
+		Technician	technicianEight = new Technician(null, "Osni César Pires Ribeiro",
+				"09987430546", "osnipiresd@gmail.com", enc.encode("1234567"));
+		technicianEight.addProfiles(Profile.ADMIN);
+		
+		Client clientEight = new Client(null, "Bruno Borba", "11774657368",
+				"brunob@gmail.com", enc.encode("1234567"));
+		
+		Called calledEight = new Called(null, Priority.MEDIA, Status.ANDAMENTO,
+				"Chamado 07", "Sétimo chamado", technicianEight, clientEight);
+		
+		
+		Technician	technician1 = new Technician(null, "Ariel Douglas Gonçalves",
+				"74032164827", "teste1@gmail.com", enc.encode("2103108"));
+		technicianSeven.addProfiles(Profile.TECNICO);
+		
+		Technician	technician2 = new Technician(null, "Bruno Gabriel de Borba",
+				"57554388541", "teste2@gmail.com", enc.encode("2411570"));
+		technicianSeven.addProfiles(Profile.TECNICO);
+		
+		Technician	technician3 = new Technician(null, "Christian Schoeller",
+				"44049044870", "teste3@gmail.com", enc.encode("2451111"));
+		technicianSeven.addProfiles(Profile.TECNICO);
+		
+		Client client1 = new Client(null, "Pedro Pereira dos Santos", "26044075311",
+				"butr@gmail.com", enc.encode("1234567"));
+		
+		Client client2 = new Client(null, "Juvenal Lisboa", "35174278106",
+				"malan@gmail.com", enc.encode("1234567"));
+		
+		Client client3 = new Client(null, "Joarez Sebastião da Cunha", "55815879304",
+				"bisael@gmail.com", enc.encode("1234567"));
+		
+		Client client4 = new Client(null, "João Goulart", "81368399215",
+				"jgjuvento@gmail.com", enc.encode("1234567"));
+		
+		
 		technicianRepository.saveAll(Arrays.asList(technicianOne, technicianTwo, technicianThree, 
-				technicianFour, technicianFive, technicianSix, technicianSeven));
+				technicianFour, technicianFive, technicianSix, technicianSeven, technicianEight, 
+				technician1, technician2, technician3));
 		clientRepository.saveAll(Arrays.asList(clientOne, clientTwo, clientThree, 
-				clientFour, clientFive, clientSix, clientSeven));
+				clientFour, clientFive, clientSix, clientSeven, clientEight, client1, 
+				client2, client3, client4));
 		calledRepository.saveAll(Arrays.asList(calledOne, calledTwo, 
-				calledFour, calledFive, calledSix, calledSeven));
+				calledFour, calledFive, calledSix, calledSeven, calledEight));
 	}
 }
