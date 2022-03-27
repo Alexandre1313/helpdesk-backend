@@ -39,7 +39,8 @@ public class TechnicianService {
 	public Technician create(TechnicianDTO objDTO) {
 		objDTO.setId(null);
 		objDTO.setPassword(enc.encode(objDTO.getPassword()));
-		validByItinAndEmail(objDTO); 
+		validByItinAndEmail(objDTO);
+		itinNumberIsValid(objDTO);
 		Technician newObj = new Technician(objDTO);
 		return repository.save(newObj);
 	}
@@ -51,10 +52,15 @@ public class TechnicianService {
 			objDTO.setPassword(enc.encode(objDTO.getPassword()));
 		}
 		validByItinAndEmail(objDTO);
+		itinNumberIsValid(objDTO);
 		oldObj = new Technician(objDTO);
 		return repository.save(oldObj);
 	}
 	
+	private void itinNumberIsValid(TechnicianDTO objDTO) {
+		// TODO Auto-generated method stub
+	}
+
 	public void delete(Integer id) {
 		Technician obj = fyndById(id);
 		if(obj.getCalls().size() > 0) {

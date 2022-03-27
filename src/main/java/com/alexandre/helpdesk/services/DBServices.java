@@ -3,7 +3,6 @@ package com.alexandre.helpdesk.services;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -141,14 +140,55 @@ public class DBServices {
 		Client client4 = new Client(null, "João Goulart", "81368399215",
 				"jgjuvento@gmail.com", enc.encode("1234567"));
 		
+		Client client5 = new Client(null, "Pedro Rosa Guimarães", "60824815505",
+				"pedro ros@gmail.com", enc.encode("1563986"));
 		
+		Client client6 = new Client(null, "Joãozinho da Lua", "29360622338",
+				"jodalu@gmail.com", enc.encode("8965874"));
+		
+		Client client7 = new Client(null, "Pedro Pirapora Gomes", "15331869793",
+				"pedrinhopira@gmail.com", enc.encode("45874569"));
+		
+		Client client8 = new Client(null, "Caio Lacerda Júnior", "55334389555",
+				"caio_lacerda@gmail.com", enc.encode("12345678965896"));
+		
+		Client client9 = new Client(null, "Tin Berles Lee", "24286154599",
+				"tim@gmail.com", enc.encode("1234567745896"));
+		
+		
+		Called called1 = new Called(null, Priority.MEDIA, Status.ENCERRADO,
+				"Conserto TV 42'", "Led queimado", technicianOne, client9);
+		
+		Called called2 = new Called(null, Priority.BAIXA, Status.ABERTO,
+				"Conserto Nottbook Asus", "Bateria não carrega", technicianTwo, client8);
+		
+		Called called3 = new Called(null, Priority.ALTA, Status.ENCERRADO,
+				"Conserto Celular Nókia", "Display quebrado", technicianOne, client7);
+		
+		Called called4 = new Called(null, Priority.ALTA, Status.ENCERRADO,
+				"Conserto Bike aro 26'", "Pneu vazio", technicianThree, client6);
+		
+		Called called5 = new Called(null, Priority.MEDIA, Status.ABERTO,
+				"Conserto Lavadoura Roupas", "Carambola quebrada", technicianFive, client5);
+		
+		Called called6 = new Called(null, Priority.ALTA, Status.ENCERRADO,
+				"Conserto Video Game", "Compartimento do DVD avariado", technicianOne, clientFour);
+		
+		Called called7 = new Called(null, Priority.BAIXA, Status.ENCERRADO,
+				"Conserto Monitor 17'", "Leds internos Soltos", technicianEight, client1);
+		
+		Called called8 = new Called(null, Priority.BAIXA, Status.ENCERRADO,
+				"Conserto de Câmara de Ar", "Remendo", technician1, clientEight);
+		
+				
 		technicianRepository.saveAll(Arrays.asList(technicianOne, technicianTwo, technicianThree, 
 				technicianFour, technicianFive, technicianSix, technicianSeven, technicianEight, 
 				technician1, technician2, technician3));
 		clientRepository.saveAll(Arrays.asList(clientOne, clientTwo, clientThree, 
 				clientFour, clientFive, clientSix, clientSeven, clientEight, client1, 
-				client2, client3, client4));
+				client2, client3, client4, client5, client6, client7, client8, client9));
 		calledRepository.saveAll(Arrays.asList(calledOne, calledTwo, 
-				calledFour, calledFive, calledSix, calledSeven, calledEight));
+				calledFour, calledFive, calledSix, calledSeven, calledEight, called8
+				, called7, called6, called5, called4, called3, called2, called1));
 	}
 }
