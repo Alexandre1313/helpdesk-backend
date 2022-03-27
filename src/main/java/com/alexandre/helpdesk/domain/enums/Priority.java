@@ -2,7 +2,7 @@ package com.alexandre.helpdesk.domain.enums;
 
 public enum Priority {
 	
-	BAIXA(0, "BAIXA"), MEDIA(1, "MEDIA"), ALTA(1, "ALTA");
+	BAIXA(0, "BAIXA"), MEDIA(1, "MEDIA"), ALTA(2, "ALTA");
 	
 	private Integer code;
 	private String description;
