@@ -60,6 +60,9 @@ public class Called implements Serializable {
 		this.comments = comments;
 		this.technician = technician;
 		this.client = client;
+		if(this.getStatus().equals(Status.ENCERRADO)) {
+			this.closingDate = LocalDate.now();
+		}
 	}
 
 	public Integer getId() {
