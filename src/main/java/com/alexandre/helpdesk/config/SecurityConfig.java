@@ -63,7 +63,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration().applyPermitDefaultValues();
 		corsConfiguration.setAllowedMethods(Arrays.asList("POST", "GET", "PUT", "DELETE", "OPTIONS"));
-		corsConfiguration.setAllowedOrigins(Arrays.asList("https://helpdesk-front-git-master-alexandre13a-gmailcom.vercel.app"));
+		//corsConfiguration.setAllowedOrigins(Arrays.asList("https://helpdesk-front-git-master-alexandre13a-gmailcom.vercel.app"));
 		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/**", corsConfiguration);
 		return source;

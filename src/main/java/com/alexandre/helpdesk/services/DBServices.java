@@ -118,15 +118,15 @@ public class DBServices {
 		
 		Technician	technician1 = new Technician(null, "Ariel Douglas Gonçalves",
 				"74032164827", "teste1@gmail.com", enc.encode("2103108"));
-		technicianSeven.addProfiles(Profile.TECNICO);
+		technician1.addProfiles(Profile.TECNICO);
 		
 		Technician	technician2 = new Technician(null, "Bruno Gabriel de Borba",
 				"57554388541", "teste2@gmail.com", enc.encode("2411570"));
-		technicianSeven.addProfiles(Profile.TECNICO);
+		technician2.addProfiles(Profile.TECNICO);
 		
 		Technician	technician3 = new Technician(null, "Christian Schoeller",
 				"44049044870", "teste3@gmail.com", enc.encode("2451111"));
-		technicianSeven.addProfiles(Profile.TECNICO);
+		technician3.addProfiles(Profile.TECNICO);
 		
 		Client client1 = new Client(null, "Pedro Pereira dos Santos", "26044075311",
 				"butr@gmail.com", enc.encode("1234567"));
@@ -180,6 +180,58 @@ public class DBServices {
 		Called called8 = new Called(null, Priority.BAIXA, Status.ENCERRADO,
 				"Conserto de Câmara de Ar", "Remendo", technician1, clientEight);
 		
+		
+		
+		Called called9 = new Called(null, Priority.ALTA, Status.ENCERRADO,
+				"Conserto IPHONE 8'", "Avaria no display", technician3, client7);
+		
+		Called called10 = new Called(null, Priority.BAIXA, Status.ABERTO,
+				"Conserto Notbook Acer", "Touchpad estragado", technicianFour, client1);
+		
+		Called called11 = new Called(null, Priority.ALTA, Status.ENCERRADO,
+				"Conserto máquina roçar grama", "Hélice quebrada", technicianFive, client2);
+		
+		Called called12 = new Called(null, Priority.ALTA, Status.ENCERRADO,
+				"Conserto Bike aro 13 monark'", "Traca câmbio 21 marchas", technicianThree, client6);
+		
+		Called called13 = new Called(null, Priority.MEDIA, Status.ABERTO,
+				"Conserto Lavadoura Roupas", "Bomba de esvaziamento queimada", technicianFive, client7);
+		
+		Called called14 = new Called(null, Priority.MEDIA, Status.ENCERRADO,
+				"Conserto violão ", "Cordas arrebentadas", technicianOne, clientFive);
+		
+		Called called15 = new Called(null, Priority.BAIXA, Status.ENCERRADO,
+				"Conserto câmara de ar motocicleta'", "Remendo", technicianEight, client7);
+		
+		Called called16 = new Called(null, Priority.BAIXA, Status.ENCERRADO,
+				"Conserto de Câmara de Ar automotiva", "Remendo", technician3, clientEight);
+		
+		
+		
+		Called called17 = new Called(null, Priority.ALTA, Status.ENCERRADO,
+				"Conserto bola futsal'", "Remendo", technician1, client7);
+		
+		Called called18 = new Called(null, Priority.ALTA, Status.ABERTO,
+				"Conserto MacBook Pro 13", "Bateria não carrega", technician3, client1);
+		
+		Called called19 = new Called(null, Priority.ALTA, Status.ENCERRADO,
+				"Conserto pistão", "Limpeza do mesmo", technicianOne, client7);
+		
+		Called called20 = new Called(null, Priority.ALTA, Status.ENCERRADO,
+				"Conserto mesa 6 cadeiras'", "Pintura envelhecida", technicianThree, client7);
+		
+		Called called21 = new Called(null, Priority.ALTA, Status.ABERTO,
+				"Conserto Lavadoura Roupas Cônsul", "Carambola quebrada, bomba de esgotamento queimada", technicianFive, client5);
+		
+		Called called22 = new Called(null, Priority.ALTA, Status.ENCERRADO,
+				"Conserto Video Game Nintendo Wii", "Compartimento do DVD avariado", technician1, clientFour);
+		
+		Called called23 = new Called(null, Priority.ALTA, Status.ENCERRADO,
+				"Conserto Monitor 14'", "Leds internos Soltos", technicianSix, clientOne);
+		
+		Called called24 = new Called(null, Priority.ALTA, Status.ENCERRADO,
+				"Conserto de Jaqueta Couro", "Pintura terá de ser refeita", technicianOne, clientEight);
+		
 				
 		technicianRepository.saveAll(Arrays.asList(technicianOne, technicianTwo, technicianThree, 
 				technicianFour, technicianFive, technicianSix, technicianSeven, technicianEight, 
@@ -189,6 +241,9 @@ public class DBServices {
 				client2, client3, client4, client5, client6, client7, client8, client9));
 		calledRepository.saveAll(Arrays.asList(calledOne, calledTwo, 
 				calledFour, calledFive, calledSix, calledSeven, calledEight, called8
-				, called7, called6, called5, called4, called3, called2, called1));
+				, called7, called6, called5, called4, called3, called2, called1 
+				, called9, called10, called11, called12, called13, called14, called15
+				, called17, called16, called5, called18, called19, called20, called21
+				, called22, called23, called24));
 	}
 }
