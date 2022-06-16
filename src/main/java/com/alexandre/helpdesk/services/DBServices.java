@@ -183,7 +183,7 @@ public class DBServices {
 		
 		
 		Called called9 = new Called(null, Priority.ALTA, Status.ENCERRADO,
-				"Conserto IPHONE 8'", "Avaria no display", technician3, client7);
+				"Conserto IPHONE 8", "Avaria no display", technician3, client7);
 		
 		Called called10 = new Called(null, Priority.BAIXA, Status.ABERTO,
 				"Conserto Notbook Acer", "Touchpad estragado", technicianFour, client1);
@@ -192,16 +192,16 @@ public class DBServices {
 				"Conserto máquina roçar grama", "Hélice quebrada", technicianFive, client2);
 		
 		Called called12 = new Called(null, Priority.ALTA, Status.ENCERRADO,
-				"Conserto Bike aro 13 monark'", "Traca câmbio 21 marchas", technicianThree, client6);
+				"Conserto Bike aro 13 monark", "Traca câmbio 21 marchas", technicianThree, client6);
 		
 		Called called13 = new Called(null, Priority.MEDIA, Status.ABERTO,
 				"Conserto Lavadoura Roupas", "Bomba de esvaziamento queimada", technicianFive, client7);
 		
 		Called called14 = new Called(null, Priority.MEDIA, Status.ENCERRADO,
-				"Conserto violão ", "Cordas arrebentadas", technicianOne, clientFive);
+				"Conserto violão", "Cordas arrebentadas", technicianOne, clientFive);
 		
 		Called called15 = new Called(null, Priority.BAIXA, Status.ENCERRADO,
-				"Conserto câmara de ar motocicleta'", "Remendo", technicianEight, client7);
+				"Conserto câmara de ar motocicleta", "Remendo", technicianEight, client7);
 		
 		Called called16 = new Called(null, Priority.BAIXA, Status.ENCERRADO,
 				"Conserto de Câmara de Ar automotiva", "Remendo", technician3, clientEight);
@@ -209,7 +209,7 @@ public class DBServices {
 		
 		
 		Called called17 = new Called(null, Priority.ALTA, Status.ENCERRADO,
-				"Conserto bola futsal'", "Remendo", technician1, client7);
+				"Conserto bola futsal", "Remendo", technician1, client7);
 		
 		Called called18 = new Called(null, Priority.ALTA, Status.ABERTO,
 				"Conserto MacBook Pro 13", "Bateria não carrega", technician3, client1);
@@ -218,7 +218,7 @@ public class DBServices {
 				"Conserto pistão", "Limpeza do mesmo", technicianOne, client7);
 		
 		Called called20 = new Called(null, Priority.ALTA, Status.ENCERRADO,
-				"Conserto mesa 6 cadeiras'", "Pintura envelhecida", technicianThree, client7);
+				"Conserto mesa 6 cadeiras", "Pintura envelhecida", technicianThree, client7);
 		
 		Called called21 = new Called(null, Priority.ALTA, Status.ABERTO,
 				"Conserto Lavadoura Roupas Cônsul", "Carambola quebrada, bomba de esgotamento queimada", technicianFive, client5);
@@ -227,10 +227,10 @@ public class DBServices {
 				"Conserto Video Game Nintendo Wii", "Compartimento do DVD avariado", technician1, clientFour);
 		
 		Called called23 = new Called(null, Priority.ALTA, Status.ENCERRADO,
-				"Conserto Monitor 14'", "Leds internos Soltos", technicianSix, clientOne);
+				"Conserto Monitor 14", "Leds internos Soltos", technicianSix, clientOne);
 		
 		Called called24 = new Called(null, Priority.ALTA, Status.ENCERRADO,
-				"Conserto de Jaqueta Couro", "Pintura terá de ser refeita", technicianOne, clientEight);
+				"Conserto de Jaqueta Couro Motociclista", "Pintura terá de ser refeita", technicianOne, clientEight);
 		
 				
 		technicianRepository.saveAll(Arrays.asList(technicianOne, technicianTwo, technicianThree, 
